@@ -36,7 +36,7 @@ If not, check if the port for connection client and server (`8024`) at the serve
 ```bash
 sudo ufw allow
 sudo ufw show added
-udo ufw enable
+sudo ufw enable
 ```
 
 ### 2.3 Setup penetration service
