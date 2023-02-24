@@ -23,7 +23,7 @@ At this point, you should have your server running with a fixed `ip` address and
 Run the following command to install the nps client on the client machine
 
 ```bash
-python3 client_install.py --server xxx.xxx.xxx.xxx --port xxxx --vkey xxxxxxxx
+python3 client_install.py --server SERVER_IP_ADDRESS --port SERVER_PORT --vkey CLIENT_VKEY
 ```
 
 -   `--server` and `--vkey` arguments are always required.
@@ -34,7 +34,7 @@ Successful installation will be reflected on the web interface as a new online c
 If not, check if the port for connection client and server (`8024`) at the server side is open for traffic.
 
 ```bash
-sudo ufw allow
+sudo ufw allow 8024
 sudo ufw show added
 sudo ufw enable
 ```
