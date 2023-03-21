@@ -19,6 +19,16 @@ def is_tool(name):
     return shutil.which(name) is not None
 
 
+def gain_sudo_privileges():
+    """Prompt for sudo password and keep it for 15 minutes"""
+    cmd = "sudo -v"
+    proc = subprocess.run(cmd, shell=True, stdout=subprocess.DEVNULL)
+    if proc.returncode != 0:
+        print("Failed to gain sudo privileges")
+        return False
+    return True
+
+
 def _colorcode(code: int) -> str:
     return "\033[" + str(code) + "m"
 
@@ -56,6 +66,8 @@ def main():
     if answer != "y":
         print_red("Aborting...")
         return
+
+    gain_sudo_privileges()
 
     HOME = Path.home()
     NPS_DIR = HOME / ".nps_client"
